@@ -1,0 +1,6 @@
+/Users/samir.zoghbi/git/sboot-vyne-atom-transaction/domain/src/main/java/br/com/vyne/domain/dto/TransactionResponseDto.java
+/Users/samir.zoghbi/git/sboot-vyne-atom-transaction/domain/src/main/java/br/com/vyne/domain/enums/CurrencyEnum.java
+/Users/samir.zoghbi/git/sboot-vyne-atom-transaction/domain/src/main/java/br/com/vyne/domain/service/TransactionService.java
+/Users/samir.zoghbi/git/sboot-vyne-atom-transaction/domain/src/main/java/br/com/vyne/domain/port/TransactionRepository.java
+/Users/samir.zoghbi/git/sboot-vyne-atom-transaction/domain/src/main/java/br/com/vyne/domain/enums/TransactionStatusEnum.java
+/Users/samir.zoghbi/git/sboot-vyne-atom-transaction/domain/src/main/java/br/com/vyne/domain/dto/TransactionDto.java

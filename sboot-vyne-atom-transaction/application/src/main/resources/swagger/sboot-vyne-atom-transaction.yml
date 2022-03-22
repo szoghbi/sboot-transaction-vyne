@@ -1,0 +1,151 @@
+swagger: "2.0"
+info:
+  description: "Transaction api"
+  version: "1.0.0"
+  title: "Transaction API"
+host: "sboot-vyne-atom-transaction.com"
+basePath: "/v1"
+schemes:
+  - "https"
+paths:
+  /transactions:
+    post:
+      tags:
+        - "transactions"
+      summary: "Add new transactions"
+      operationId: "addTransactions"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          required: true
+          schema:
+            $ref: "#/definitions/TransactionsRequest"
+      responses:
+        400:
+          description: "Bad Request"
+        201:
+          description: "Created"
+          schema:
+            $ref: "#/definitions/TransactionsRequest"
+      security:
+        - OAuth2: []
+  /transactions/list:
+    get:
+      tags:
+        - "transactions"
+      summary: "List all transactions"
+      description: "List all transactions with, transaction date, transaction status, transaction code, amount and currency."
+      operationId: "listTransactions"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/TransactionsResponse"
+        400:
+          description: "Bad Request"
+      security:
+        - OAuth2: []
+  /transactions/remove/{id}:
+    delete:
+      tags:
+        - "transactions"
+      summary: "Remove transactions"
+      description: ""
+      operationId: "removeTransactions"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          type: "integer"
+          format: "int64"
+      responses:
+        400:
+          description: "Bad Request"
+        204:
+          description: "No content"
+      security:
+        - OAuth2: []
+  /transactions/findByCurrency/{currency}:
+    get:
+      tags:
+        - "transactions"
+      summary: "List transactions by currency"
+      description: "Find by currency"
+      operationId: "findByCurrency"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "currency"
+          in: "path"
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/TransactionsResponse"
+        400:
+          description: "Bad Request"
+      security:
+        - OAuth2: []
+securityDefinitions:
+  OAuth2:
+    type: oauth2
+    flow: application
+    tokenUrl:
+definitions:
+  TransactionsRequest:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      fullName:
+        type: string
+        description: Full Name
+      transactionDate:
+        type: string
+        format: date
+        description: Transaction Date
+      amount:
+        type: "number"
+      currency:
+        type: "integer"
+        enum: [0, 1] 
+        description: 0 - USD, 1 - GBP
+  TransactionsResponse:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      fullName:
+        type: string
+        description: Full Name
+      transactionDate:
+        type: string
+        format: date
+        description: Transaction Date
+      amount:
+        type: "number"
+      currency:
+        type: "string"
+        description: 0 - USD, 1 - GBP
+      transactionCode:
+        type: integer
+        description: 0 - Processing, 1 - Confirmed, 2 - Rejected
+      transactionStatus:
+        type: string
+        description: Transaction Status

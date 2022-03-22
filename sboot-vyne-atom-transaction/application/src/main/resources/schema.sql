@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS transaction;
+CREATE TABLE transaction (id int(11) NOT NULL AUTO_INCREMENT, transactionDate date NOT NULL, fullName varchar(255) NOT NULL,  amount DECIMAL(5,2) NOT NULL, currency varchar(255) NOT NULL, transactionCode int(11) NOT NULL, transactionStatus varchar(255) NOT NULL, PRIMARY KEY (id));

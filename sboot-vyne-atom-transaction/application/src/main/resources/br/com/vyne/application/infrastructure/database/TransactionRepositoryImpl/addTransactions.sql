@@ -1,0 +1,1 @@
+insert into transaction (id, transactionDate, fullName, transactionStatus, transactionCode, amount, currency) values (:id, :transactionDate, :fullName, :transactionStatus, :transactionCode, :amount, :currency);

@@ -1,0 +1,8 @@
+br/com/vyne/domain/enums/CurrencyEnum.class
+br/com/vyne/domain/service/TransactionService.class
+br/com/vyne/domain/dto/TransactionResponseDto.class
+br/com/vyne/domain/dto/TransactionDto$TransactionDtoBuilder.class
+br/com/vyne/domain/port/TransactionRepository.class
+br/com/vyne/domain/dto/TransactionResponseDto$TransactionResponseDtoBuilder.class
+br/com/vyne/domain/enums/TransactionStatusEnum.class
+br/com/vyne/domain/dto/TransactionDto.class

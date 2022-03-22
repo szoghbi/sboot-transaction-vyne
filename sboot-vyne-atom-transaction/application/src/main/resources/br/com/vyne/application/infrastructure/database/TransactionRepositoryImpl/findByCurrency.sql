@@ -1,0 +1,1 @@
+select id, transactionDate, fullName, amount, currency, transactionCode, transactionStatus from TRANSACTION WHERE currency = :currency;
